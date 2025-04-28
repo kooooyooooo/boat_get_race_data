@@ -1,0 +1,1 @@
+ 主要ライブラリ: Beautiful Soup, Scrapy, Requests, Pandas (データ処理), , SQLAlchemy (データベース抽象化レイヤーとして強く推奨) 
