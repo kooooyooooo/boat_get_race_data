@@ -33,7 +33,7 @@ ENV/
 .project
 .pydevproject
 .settings/
-.cursorrules
+# .cursorrules
 
 # 出力ファイル
 # data/csv/*.csv
