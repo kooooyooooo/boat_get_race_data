@@ -1,4 +1,4 @@
-# DB Schema ― 競艇データ収集基盤
+# DB Schema ― 競艇データ収集基盤
 
 > **目的** : 過去 10 年分のレースデータと半期ごとの選手集計データ（ファン手帳）を一体で管理し、機械学習・シミュレーションで横断的に利活用できるようにする。
 
@@ -11,14 +11,17 @@
 | マスタ | `venue` | 場 | `jcd` | 競艇場コードと名称、所在地 |
 | マスタ | `player` | 選手 | `player_id` | 基本プロフィール（氏名・支部・出身地・生年月日） |
 | 半期集計 | `player_season_summary` | **選手 × 半期** | `(player_id, year, term)` | 勝率・出走数など半期サマリ（ファン手帳 CSV と 1:1 対応） |
-| 半期集計 | `player_lane_summary` | **選手 × 半期 × コース** | `(player_id, year, term, lane)` | コース別詳細（lane=0 は"コースなし"統計） |
-| レース | `race` | **開催日 × 場 × レースNo** | `race_id` | レース属性＋気象、水面、**year/term 列でファン手帳期と連携** |
+| 半期集計 | `player_lane_summary` | **選手 × 半期 × コース** | `(player_id, year, term, lane)` | コース別詳細（lane=0 は“コースなし”統計） |
+| レース | `race` | **開催日 × 場 × レースNo** | `race_id` | レース属性＋気象、水面、**season_year / season_term 列でファン手帳期と連携** |
 | レース | `race_entry` | **Race × 枠(1–6)** | `entry_id` | 出走表＋直前＋結果を一体化した行単位データ |
 | レース | `payout` | **Race × 勝式** | `payout_id` | 払戻金（3連単・2連複…） |
 
 ---
 
-## 2. テーブル定義（DDL 抜粋 / 型は SQLite 想定）
+## 2. テーブル定義（DDL 抜粋 / SQLite 型）
+
+<details>
+<summary>DDL 一覧を表示</summary>
 
 ### 2.1 `venue`
 ```sql
@@ -108,7 +111,6 @@ CREATE TABLE race (
     wind_dir    TEXT,
     water_temp  DECIMAL(4,1),
     wave_height SMALLINT,
-    is_stable_plate_used BOOLEAN NOT NULL DEFAULT FALSE, -- 安定板使用の有無
     -- ▼ ファン手帳期との連携用
     season_year SMALLINT NOT NULL,            -- 2024
     season_term TINYINT  NOT NULL,            -- 1 or 2
@@ -117,10 +119,9 @@ CREATE TABLE race (
 CREATE INDEX idx_race_hd_jcd ON race(hd, jcd);
 ```
 
-> **season_year/season_term の決定方法**
-> - 4〜9 月開催分 → `season_term = 1`, `season_year = hd の西暦`
-> - 10〜翌 3 月開催分 → `season_term = 2`, `season_year = hd の西暦`（年度跨ぎでも開始年に合わせる）
-> - 例：2024-10-05 のレース ⇒ `(2024, 2)` ⇒ `fan2410.csv` と JOIN 可
+> **season_year / season_term 決定ルール**  
+> 04–09 月開催 → `term = 1`、10–翌 03 月開催 → `term = 2`（年度跨ぎでも開始年に合わせる）。  
+> 例: 2024‑10‑05 のレース ⇒ `(2024, 2)` → `fan2410.csv` と JOIN 可。
 
 ### 2.6 `race_entry`
 ```sql
@@ -152,7 +153,7 @@ CREATE TABLE race_entry (
     tuning_weight   DECIMAL(4,1),
     exhibition_time DECIMAL(4,2),
     tilt            DECIMAL(3,1),
-    parts_changed   TEXT,              -- JSON 配列文字列
+    parts_changed   TEXT,
 
     -- 結果
     rank_raw     TEXT,                 -- '１','F','失' 等
@@ -179,6 +180,8 @@ CREATE TABLE payout (
 CREATE INDEX idx_payout_race ON payout(race_id);
 ```
 
+</details>
+
 ---
 
 ## 3. ER 図（簡易テキスト）
@@ -191,19 +194,41 @@ player 1──n player_season_summary 1──n player_lane_summary
 
 ---
 
-## 4. ファン手帳 CSV 取り込みフロー
-1. ファイル名 `fanYYMM.csv` または `fanYYMM.parquet` を読み取り。
-2. ファイル名から `season_year = 20YY`, `season_term = (MM <= 09 → 1, else 2)`
-3. `player_season_summary` と `player_lane_summary` にバルク INSERT。
-4. レースデータの `season_year/term` 列で JOIN 可能。
+## 4. ファン手帳 CSV 取り込み手順
+
+半期ごとの選手サマリー（ファン手帳）は **単一テーブル** で管理します。ファイル名から期情報をパースし、`player_season_summary` と `player_lane_summary` に直接 INSERT してください。
+
+| ステップ | 説明 |
+|----------|------|
+| **① ファイル検出** | ファン手帳は `fanYYMM.csv` または `.parquet` で配置される想定。|
+| **② 期情報の決定** | YY → 西暦 20YY / MM から `term` を決定:<br>- 04–09 月 → `term = 1`<br>- 10–12 月 → `term = 2`<br>- 01–03 月 → **前年**に帰属させ `year = 20(YY-1)`, `term = 2` |
+| **③ CSV / Parquet 読込** | `pandas.read_csv` / `pd.read_parquet` で DataFrame 化。列名 ↔ テーブル列をマッピング。 |
+| **④ player_season_summary** | 前期・後期で一意になる `(player_id, year, term)` を主キーとして UPSERT。|
+| **⑤ player_lane_summary** | コース別列を縦持ち展開（lane=0 行含め計 7 行/選手)。同主キーで UPSERT。|
+| **⑥ インデックス確認** | 大量 INSERT 時は一時的に INDEX を無効化→再構築すると高速化。|
+
+> **例**  
+> - `fan2404.csv` → year = 2024, term = 1  
+> - `fan2410.csv` → year = 2024, term = 2  
+
+**race テーブルとの JOIN** は以下の条件で行えます。
+```sql
+SELECT ...
+FROM race_entry e
+JOIN race r USING(race_id)
+JOIN player_season_summary s
+  ON e.player_id = s.player_id
+ AND r.season_year = s.year
+ AND r.season_term = s.term;
+```
 
 ---
 
-## 5. インポート／利用時のメモ
-- **SQLite → PostgreSQL 移行** では `AUTOINCREMENT` → `SERIAL`, `TEXT` → `VARCHAR`, `NUMERIC` 型の桁数確認を行う。
-- JSON 列 (`parts_changed`) は SQLite では単なる TEXT。PostgreSQL では `jsonb` 移行を推奨。
+## 5. インポート／運用メモ
+- **SQLite → PostgreSQL 移行**: `AUTOINCREMENT` → `SERIAL / IDENTITY`, `TEXT` → `VARCHAR`, `NUMERIC` の桁数確認。
+- JSON 列 (`parts_changed`) は SQLite では TEXT。PostgreSQL では `jsonb` が推奨。
 - 気象列の NULL 許容可否はスクレイピング実装時に調整。
 
----
 
-*Last update: 2025‑04‑28*
+*Last update: 2025-04-28*
+

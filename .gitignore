@@ -36,8 +36,10 @@ ENV/
 # .cursorrules
 
 # 出力ファイル
-# data/csv/*.csv
-# *.csv
+data/csv/*.csv
+*.csv
+*.parquet
+*.db
 
 # OSごとの設定ファイル
 .DS_Store
