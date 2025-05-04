@@ -420,3 +420,97 @@
 2025-04-28 18:18:08,216 [INFO] 6名の選手情報を抽出しました
 2025-04-28 18:18:08,218 [INFO] 会場 05 のデータをデータベースに保存しました
 2025-04-28 18:18:09,219 [INFO] 全会場の処理が完了しました
+2025-04-30 20:14:31,888 [INFO] レース 20240427 01 1 のスクレイピングを開始
+2025-04-30 20:14:41,115 [INFO] 出走表から 6 名の選手情報を抽出しました
+2025-04-30 20:14:52,239 [INFO] 直前情報から 6 名の選手情報を抽出しました
+2025-04-30 20:15:02,500 [INFO] レース結果から 8 名の着順情報と 0 件の払戻金情報を抽出しました
+2025-04-30 20:15:02,500 [INFO] レース 20240427 01 1 のスクレイピングが完了
+2025-04-30 20:15:02,500 [INFO] データを /home/koyo/Desktop/code/boat/boat_get_race_data/data/raw/20240427_01_1.json に保存しました
+2025-04-30 20:59:34,249 [INFO] レース 20240427 01 1 のスクレイピングを開始
+2025-04-30 20:59:42,559 [INFO] 出走表から 6 名の選手情報を抽出しました
+2025-04-30 20:59:53,731 [INFO] 直前情報から 6 名の選手情報を抽出しました
+2025-04-30 21:00:04,984 [INFO] レース結果から 6 名の着順情報、決まり手 '差し'、0 件の払戻金情報を抽出しました
+2025-04-30 21:00:04,984 [INFO] レース 20240427 01 1 のスクレイピングが完了
+2025-04-30 21:00:04,984 [INFO] データを /home/koyo/Desktop/code/boat/boat_get_race_data/data/raw/20240427_01_1.json に保存しました
+2025-04-30 21:07:33,579 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:07:33,579 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:07:33,601 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:07:33,601 [INFO] データを data/raw/test_result_local.json/20250430_XX_0.json に保存しました
+2025-04-30 21:07:49,140 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:07:49,140 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:07:49,162 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:07:49,163 [INFO] データを data/raw/test_result_local.json/20250430_XX_0.json に保存しました
+2025-04-30 21:08:02,969 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:08:02,969 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:08:02,992 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:08:18,842 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:08:18,842 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:08:18,863 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:08:18,864 [INFO] データを data/raw/test_result_local.json/20250430_XX_0.json に保存しました
+2025-04-30 21:08:31,585 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:08:31,585 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:08:31,607 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:08:31,607 [INFO] データを data/raw/test_result_local.json/20250430_XX_0.json に保存しました
+2025-04-30 21:08:45,253 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:08:45,253 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:08:45,275 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:08:54,266 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:08:54,266 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:08:54,288 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:08:54,288 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-04-30 21:09:22,229 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:09:22,229 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:09:22,251 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:09:22,251 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-04-30 21:14:53,797 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:14:53,797 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:14:53,822 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:14:53,822 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-04-30 21:15:47,370 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:15:47,371 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:15:47,393 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:15:47,393 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-04-30 21:16:11,344 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:16:11,344 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:16:11,366 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:16:11,366 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-04-30 21:16:39,600 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-04-30 21:16:39,600 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-04-30 21:16:39,621 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-04-30 21:16:39,622 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 20:57:09,130 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 20:57:09,131 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 20:57:09,152 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-05-01 20:57:09,153 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 20:57:26,700 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 20:57:26,700 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 20:57:26,751 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-05-01 20:57:26,752 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 20:57:48,265 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 20:57:48,265 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 20:57:48,288 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-05-01 20:57:48,288 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 20:58:07,346 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 20:58:07,346 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 20:58:07,368 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-05-01 20:58:07,369 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 20:58:31,480 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 20:58:31,480 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 20:58:31,502 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-05-01 20:58:31,502 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 20:58:54,105 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 20:58:54,105 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 20:58:54,127 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-05-01 20:58:54,128 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 20:59:18,123 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 20:59:18,123 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 20:59:18,148 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、10 件の払戻金情報を抽出しました
+2025-05-01 20:59:18,149 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 21:01:05,039 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 21:01:05,039 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 21:01:05,062 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-05-01 21:01:05,062 [INFO] データを data/raw/test_result_local.json に保存しました
+2025-05-01 21:01:34,697 [INFO] ローカルHTMLファイル 'docs/research/結果.html' を使用してテストを実行します。
+2025-05-01 21:01:34,697 [INFO] ローカルHTMLファイルからデータを抽出します: /home/koyo/Desktop/code/boat/boat_get_race_data/docs/research/結果.html
+2025-05-01 21:01:34,751 [INFO] ローカルHTMLから 6 名の着順情報、決まり手 '逃げ'、0 件の払戻金情報を抽出しました
+2025-05-01 21:01:34,752 [INFO] データを data/raw/test_result_local.json に保存しました

@@ -1,0 +1,55 @@
+{
+  "source": "local_html_test",
+  "results": [
+    {
+      "rank_raw": "１",
+      "rank": 1,
+      "lane": 1,
+      "player_id": 3415,
+      "race_time": "1'50\"4",
+      "start_st": 0.16
+    },
+    {
+      "rank_raw": "２",
+      "rank": 2,
+      "lane": 3,
+      "player_id": 4084,
+      "race_time": "1'51\"7",
+      "start_st": 0.14
+    },
+    {
+      "rank_raw": "３",
+      "rank": 3,
+      "lane": 2,
+      "player_id": 3959,
+      "race_time": "1'52\"6",
+      "start_st": 0.19
+    },
+    {
+      "rank_raw": "４",
+      "rank": 4,
+      "lane": 4,
+      "player_id": 3737,
+      "race_time": "1'53\"8",
+      "start_st": 0.18
+    },
+    {
+      "rank_raw": "５",
+      "rank": 5,
+      "lane": 5,
+      "player_id": 4013,
+      "race_time": "1'54\"7",
+      "start_st": 0.2
+    },
+    {
+      "rank_raw": "６",
+      "rank": 6,
+      "lane": 6,
+      "player_id": 3849,
+      "race_time": "1'57\"4",
+      "start_st": 0.18
+    }
+  ],
+  "decision": "逃げ",
+  "payouts": []
+}
